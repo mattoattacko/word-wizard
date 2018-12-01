@@ -3,7 +3,8 @@ var Word = require('./word.js')
 var chalk = require('chalk');
 var inquirer = require('inquirer');
 
-var words = ['Belltown', 'Capitol Hill', 'SeaTac', 'Bellevue', 'Tacoma', 'Federal Way', 'Everett', 'Gig Harbor'];
+var words = ['Whickersham', 'Bellingham', 'Okanogan', 'Bellevue', 'Tacoma', 'Eatonville', 'Vancouver', 'Graham'];
+
 
 var correctWord = new Word(words[Math.floor(Math.random() * words.length)]);
 correctWord.generateLetters();
