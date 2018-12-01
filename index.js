@@ -2,20 +2,25 @@
 var Word = require('./word.js')
 var chalk = require('chalk');
 var inquirer = require('inquirer');
-// var moreWords = require('./moreWords.js');
 
 
-var moreWords = [words, words2, words3];
 
-// var words = ['Whickersham', 'Bellingham', 'Okanogan', 'Bellevue', 'Tacoma', 'Eatonville', 'Vancouver', 'Graham'];
 
-// var correctWord = new Word(words[Math.floor(Math.random() * words.length)]);
-// correctWord.generateLetters();
-// var guessesRemaining = 10;
-// var guessesSoFar = [];
 
-// console.log(chalk.cyan("\nWelcome to the Word Guess Game!"));
-// console.log(chalk.yellow("Hint:") + " the words are places in Washington State.");
+var words1 = ['Whickersham', 'Bellingham', 'Okanogan', 'Bellevue', 'Tacoma', 'Eatonville', 'Vancouver', 'Graham'];
+var words2 = ['dude', 'walter', 'donny', 'theJesus'];
+var words3 = ['dog', 'cat', 'armadillo'];
+
+var searchWords = [words1, words2, words3];
+
+
+var correctWord = new Word(searchWords[Math.floor(Math.random() * searchWords.length)]);
+correctWord.generateLetters();
+var guessesRemaining = 10;
+var guessesSoFar = [];
+
+console.log(chalk.cyan("\nWelcome to the Word Guess Game!"));
+console.log(chalk.yellow("Hint:") + " the words are places in Washington State.");
 
 // Reset function
 function endGame(outcome) {
