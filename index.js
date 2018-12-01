@@ -19,11 +19,11 @@ var moreWords = [words, words2, words3];
 
 // Reset function
 function endGame(outcome) {
-  if (outcome === 'win') {
-    console.log(chalk.blue.bold("\nYou won!"));
-    console.log(chalk.yellow("You guessed ") + chalk.blue.bold(correctWord.correctWord.toUpperCase()) + " " + chalk.bgYellow.black("with " + (guessesRemaining) + " guesses remaining.") + "\n")
+  if (outcome === 'winner') {
+    console.log(chalk.blue.bold("\nPraise the Word Wizard! You have won!"));
+    console.log(chalk.yellow("You guessed ") + chalk.blue.bold(correctWord.correctWord.toUpperCase()) + " " + chalk.bgYellow.black("with " + (guessesRemaining) + " guesses remain.") + "\n")
   } else {
-    console.log("\n" + chalk.bgRed.white.bold("You lost..."));
+    console.log("\n" + chalk.bgRed.white.bold("You have lost! The Word Wizard is displeased..."));
     console.log(chalk.yellow("The correct word was: ") + chalk.bgYellow.black(correctWord.correctWord + ".") + "\n");
   };
 
@@ -34,16 +34,16 @@ function endGame(outcome) {
 
   inquirer.prompt([
     {
-      message: "Would you like to play again?",
+      message: "Do you dare to play again?",
       name: "confirm",
       type: "confirm",
     }
   ]).then(function(response) {
     if (response.confirm) {
-      console.log(chalk.cyan("\nGreat! Generating a new word..."));
+      console.log(chalk.cyan("\nGreat! The Word Wizard is conjuring a new word..."));
       main();
     } else {
-      console.log(chalk.cyan("\nHope you see you next time!\n"));
+      console.log(chalk.cyan("\nThe Word Wizard is displeased!\n"));
       return;
     };
   });
@@ -64,10 +64,10 @@ function main() {
     
     // Validate user input
     if (data.guess === "") {
-      console.log(chalk.bgRed.white("\nWHOOPS!") + chalk.yellow(" You did enter a letter."));
+      console.log(chalk.bgRed.white("\nWHOOPS!") + chalk.yellow(" You did not enter a letter."));
       return main();
     } else if (data.guess.length > 1) {
-      console.log(chalk.bgRed.white("\nWHOOPS!") + chalk.yellow(" Please guess one letter at a time."));
+      console.log(chalk.bgRed.white("\nWHOOPS!") + chalk.yellow(" One letter at a time friend."));
       return main();
     } else if (guessesSoFar.includes(data.guess)) {
       console.log(chalk.bgRed.white("\nWHOOPS!") + chalk.yellow(" You already guessed that! Choose another letter."));
@@ -85,7 +85,7 @@ function main() {
       correctWord.letters[i].check(data.guess);
     };
     if (correctWord.update().toLowerCase() == correctWord.correctWord.toLowerCase()) {
-      endGame('win');
+      endGame('winner');
       return;
     };
     if (guessesRemaining == 0) {
