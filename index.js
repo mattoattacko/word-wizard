@@ -5,7 +5,6 @@ var inquirer = require('inquirer');
 
 var words = ['Whickersham', 'Bellingham', 'Okanogan', 'Bellevue', 'Tacoma', 'Eatonville', 'Vancouver', 'Graham'];
 
-
 var correctWord = new Word(words[Math.floor(Math.random() * words.length)]);
 correctWord.generateLetters();
 var guessesRemaining = 10;
