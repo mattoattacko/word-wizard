@@ -10,7 +10,7 @@ var guessesSoFar = [];
 let hint = '';
 
 console.log(chalk.cyan("\nWelcome to Word Wizard!"));
-
+console.log('stfu github');
 // Reset function
 function endGame(outcome) {
   if (outcome === 'winner') {
