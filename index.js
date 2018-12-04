@@ -1,36 +1,31 @@
 #!/usr/bin/env node
-var Word = require('./word.js')
 var chalk = require('chalk');
 var inquirer = require('inquirer');
-// var moreWords = require('./moreWords.js');
+let newWord = require('./allWords.js');
+let correctWord = newWord();
 
+correctWord.generateLetters();
+var guessesRemaining = 10;
+var guessesSoFar = [];
+let hint = '';
 
-var moreWords = [words, words2, words3];
-
-// var words = ['Whickersham', 'Bellingham', 'Okanogan', 'Bellevue', 'Tacoma', 'Eatonville', 'Vancouver', 'Graham'];
-
-// var correctWord = new Word(words[Math.floor(Math.random() * words.length)]);
-// correctWord.generateLetters();
-// var guessesRemaining = 10;
-// var guessesSoFar = [];
-
-// console.log(chalk.cyan("\nWelcome to the Word Guess Game!"));
-// console.log(chalk.yellow("Hint:") + " the words are places in Washington State.");
+console.log(chalk.cyan("\nWelcome to Word Wizard!"));
 
 // Reset function
 function endGame(outcome) {
   if (outcome === 'winner') {
     console.log(chalk.blue.bold("\nPraise the Word Wizard! You have won!"));
-    console.log(chalk.yellow("You guessed ") + chalk.blue.bold(correctWord.correctWord.toUpperCase()) + " " + chalk.bgYellow.black("with " + (guessesRemaining) + " guesses remain.") + "\n")
+    console.log(chalk.yellow("You guessed ") + chalk.blue.bold(correctWord.correctWord.toUpperCase()) + " " + chalk.bgYellow.black("with " + (guessesRemaining) + " guesses remain.") + "\n");
   } else {
     console.log("\n" + chalk.bgRed.white.bold("You have lost! The Word Wizard is displeased..."));
     console.log(chalk.yellow("The correct word was: ") + chalk.bgYellow.black(correctWord.correctWord + ".") + "\n");
   };
 
-  correctWord = new Word(words[Math.floor(Math.random() * words.length)]);
+  correctWord = newWord();
   correctWord.generateLetters();
   guessesRemaining = 10;
   guessesSoFar = [];
+  hint = '';
 
   inquirer.prompt([
     {
@@ -58,6 +53,8 @@ function main() {
       message: "\nWord: " + chalk.blue(correctWord.update()) +
         "\n\nGuesses remaining: " + chalk.magenta.bold(guessesRemaining) +
         "\nIncorrect guesses so far: " + chalk.magenta.bold(guessesSoFar.join(' ')) + "\n" +
+        "\nCategory: " + chalk.yellow(correctWord.category) + "\n" +
+        "\nHint: " + chalk.red(hint) + "\n" +
         "Guess a letter:"
     }
   ]).then(function (data) {
@@ -87,6 +84,9 @@ function main() {
     if (correctWord.update().toLowerCase() == correctWord.correctWord.toLowerCase()) {
       endGame('winner');
       return;
+    };
+    if (guessesRemaining < 6) {
+      hint = correctWord.hint;
     };
     if (guessesRemaining == 0) {
       endGame('loss');

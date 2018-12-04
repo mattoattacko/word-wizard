@@ -1,6 +1,6 @@
 'use strict';
 
-const testWord = require('./testWord.js');
+const testWord = require('./allWords.js');
+let bill = testWord();
 
-console.log('test word:   ', testWord.word[1]);
-console.log('test hint:   ', testWord.hint[1]);
+console.log(bill);
