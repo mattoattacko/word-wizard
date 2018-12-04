@@ -8,22 +8,22 @@ function Word(correctWord, hint, category) {
 
   this.generateLetters = function() {
     var correctWordArray = this.correctWord.split('');
-    for (var i=0; i < correctWordArray.length; i++) {
-      var newLetter = new Letter(correctWordArray[i]);
+    for (var a=0; a < correctWordArray.length; a++) {
+      var newLetter = new Letter(correctWordArray[a]);
       this.letters.push(newLetter);
     };
   };
 
   this.makeGuess = function(guess) {
-    for (var j=0; j < this.letters.length; j++) {
-      this.letters[j].check(guess);
+    for (var b=0; b < this.letters.length; b++) {
+      this.letters[b].check(guess);
     };
   };
 
   this.update = function() {
     var string = ''
-    for (var k=0; k < this.letters.length; k++) {
-      string += this.letters[k].returnCharacter();
+    for (var c=0; c < this.letters.length; c++) {
+      string += this.letters[c].returnCharacter();
     };
     return string;
   };

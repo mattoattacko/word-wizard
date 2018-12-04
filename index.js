@@ -10,7 +10,7 @@ var guessesSoFar = [];
 let hint = '';
 
 console.log(chalk.cyan("\nWelcome to Word Wizard!"));
-console.log('stfu github');
+
 // Reset function
 function endGame(outcome) {
   if (outcome === 'winner') {
@@ -29,7 +29,7 @@ function endGame(outcome) {
 
   inquirer.prompt([
     {
-      message: "Do you dare to play again?",
+      message: "Foolish mortal! Do you dare to play the Word Wizard again!?",
       name: "confirm",
       type: "confirm",
     }
@@ -50,7 +50,7 @@ function main() {
     {
       name: "guess",
       prefix: '',
-      message: "\nWord: " + chalk.blue(correctWord.update()) +
+      message: "\nWord: " + chalk.cyanBright(correctWord.update()) +
         "\n\nGuesses remaining: " + chalk.magenta.bold(guessesRemaining) +
         "\nIncorrect guesses so far: " + chalk.magenta.bold(guessesSoFar.join(' ')) + "\n" +
         "\nCategory: " + chalk.yellow(correctWord.category) + "\n" +
@@ -75,9 +75,8 @@ function main() {
     if (!correctWord.correctWord.includes(data.guess)) {
       guessesRemaining--;
     }
-
     guessesSoFar.push(data.guess);
-    
+
     for (var i = 0; i < correctWord.letters.length; i++) {
       correctWord.letters[i].check(data.guess);
     };
@@ -95,5 +94,4 @@ function main() {
     main();
   });
 };
-
 main();
