@@ -4,7 +4,6 @@ var inquirer = require('inquirer');
 let newWord = require('./allWords.js');
 let correctWord = newWord();
 
-
 correctWord.generateLetters();
 var guessesRemaining = 10;
 var guessesSoFar = [];
@@ -86,7 +85,7 @@ function main() {
       endGame('winner');
       return;
     };
-    if (guessesRemaining < 4) {
+    if (guessesRemaining < 6) {
       hint = correctWord.hint;
     };
     if (guessesRemaining == 0) {
