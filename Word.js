@@ -1,7 +1,9 @@
 var Letter = require('./Letter.js');
 
-function Word(correctWord) {
+function Word(correctWord, hint, category) {
   this.correctWord = correctWord;
+  this.category = category;
+  this.hint = hint;
   this.letters = [];
 
   this.generateLetters = function() {
