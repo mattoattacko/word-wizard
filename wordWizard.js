@@ -44,7 +44,7 @@ function endGame(outcome) {
   });
 };
 
-// Main game
+// Main game (test)
 function main() {
   inquirer.prompt([
     {
