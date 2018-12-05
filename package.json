@@ -17,9 +17,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adnanyousef/word-guess-cli/issues"
+    "url": "https://github.com/mattoattacko/word-wizard/bugs"
   },
-  "homepage": "https://github.com/adnanyousef/word-guess-cli#readme",
+  "homepage": "https://github.com/mattoattacko/word-wizard#readme",
   "dependencies": {
     "chalk": "^2.4.1",
     "eslint": "^5.9.0",
