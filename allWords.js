@@ -30,8 +30,13 @@ function getWords(){
     hint: ['Jerry Cantrell', 'KimThayil', 'Mike McCready', 'Kurt Cobain', 'Steve Turner', 'Dave Grohl', 'Gary Lee Connor', 'Mike McCready', 'Mike McCready','Peter Klett', 'Jimi Hendrix'],
     category: 'Seattle Bands'
   };
+  let trees = {
+    word: ['elm', 'oak', 'maple', 'douglasfir', 'birch', 'spruce', 'juniper', 'weepingwillow', 'pecan', 'cedar', 'walnut'],
+    hint: ['Nightmarish', 'Drops acorns', 'syrupy', 'christmas tree', 'its bark makes canoes', 'only hardwood with aircraft grade strength-to-weight-ratio', 'smells like gin', 'sad tree', 'pie tree', 'good for humidors', 'gun stock material'],
+    category: 'North American Trees'
+  };
 
-  let allWords = [words1, words2, words3, words4, words5, changeTheNameOfThisVariable1];
+  let allWords = [words1, words2, words3, words4, words5, changeTheNameOfThisVariable1, trees];
   let rando1 = Math.floor(Math.random() * words1.word.length);
   let rando2 = Math.floor(Math.random() * allWords.length);
   let randomWord = {
