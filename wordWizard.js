@@ -44,7 +44,7 @@ function endGame(outcome) {
   });
 };
 
-// Main game (test)
+// Main game
 function main() {
   inquirer.prompt([
     {
@@ -75,7 +75,7 @@ function main() {
     if (!correctWord.correctWord.includes(data.guess)) {
       guessesRemaining--;
     }
-    guessesSoFar.push(data.guess);
+    guessesSoFar.push(data.guess.toUpperCase());
 
     for (var i = 0; i < correctWord.letters.length; i++) {
       correctWord.letters[i].check(data.guess);
@@ -94,4 +94,11 @@ function main() {
     main();
   });
 };
+// var scoreboard = {Player1: 0, Player2:0};
+// function updateScoreBoard (winner) {
+//     if (++scoreboard[winner]==3) {
+//         setMessage("Game over! " + winner + " has won three matches");
+//     }
+// }
+// updateScoreBoard;
 main();
